@@ -48,7 +48,7 @@ const schema = z
     }),
     hasCoupon: z.boolean(),
     coupon: z.string(),
-    password: z.string().min(3 , {message: 'Password must contain at least 6 characters'}).max(12, {message: 'Password must not exceed 12 characters'}),
+    password: z.string().min(6 , {message: 'Password must contain at least 6 characters'}).max(12, {message: 'Password must not exceed 12 characters'}),
     confirmPassword: z.string(),
   })
   .refine(
@@ -126,7 +126,7 @@ export default function Home() {
         <Space h="lg" />
 
         {/* add form */}
-        <form onSubmit={form.onSubmit(() => alert("See you at CMU Marathon"))}>
+        <form onSubmit={form.onSubmit((values) => alert("See you at CMU Marathon"))}>
           <Stack gap="sm">
             <Group grow align="start">
               <TextInput
